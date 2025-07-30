@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budget.ExpensesListPage"
+             Title="Visi izdevumi">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label Text="Tavi izdevumi:" FontSize="24" HorizontalOptions="Center" />
+            <Button Text="Eksportēt uz Excel"
+     Clicked="OnExportClicked"
+     BackgroundColor="#007AFF"
+     TextColor="White"
+     Padding="10"
+     Margin="0,10,0,0"/>
+
+            <CollectionView x:Name="ExpensesCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
+                            <VerticalStackLayout>
+                                
+                                <Label Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" FontAttributes="Bold" />
+                                <Label Text="{Binding Amount, StringFormat='{}Summa: {0} €'}" />
+                                <Label Text="{Binding Category, StringFormat='{}Kategorija: {0}'}" />
+                                <Label Text="{Binding Note, StringFormat='{}Piezīmes: {0}'}" />
+
+                                <Button Text="Dzēst ierakstu"
+        Clicked="OnDeleteClicked"
+        BackgroundColor="Red"
+        TextColor="White"
+        Padding="5"
+        Margin="0,5,0,0"/>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

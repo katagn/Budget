@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budget.ExpensesPage"
+             Title="Izdevumu ievade">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Ievadi izdevumu" FontSize="24" HorizontalOptions="Center" />
+
+        <Entry x:Name="AmountEntry" Placeholder="Summa (€)" Keyboard="Numeric" />
+
+        <Picker x:Name="CategoryPicker" Title="Izvēlies kategoriju">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Apdrošināšana</x:String>
+                    <x:String>Auto</x:String>
+                    <x:String>Ārsti</x:String>
+                    <x:String>Bankas komisijas maksas, nodokļi</x:String>
+                    <x:String>Ēšana ārpus mājas</x:String>
+                    <x:String>Izklaide</x:String>
+                    <x:String>Krājkonts</x:String>
+                    <x:String>Kredīts</x:String>
+                    <x:String>Mājoklis</x:String>
+                    <x:String>Neplānoti izdevumi</x:String>
+                    <x:String>Pārtika, saimniecības preces</x:String>
+                    <x:String>Rēķini</x:String>
+                    <x:String>Skaistumkopšana</x:String>
+                    <x:String>Sports</x:String>
+                    <x:String>Kursi</x:String>
+                    <x:String>Vitamīni</x:String>
+                    <x:String>Apģērbs</x:String>
+                    <x:String>Bēbis</x:String>
+                    <x:String>Citi</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+
+        <Editor x:Name="NoteEntry" Placeholder="Papildus piezīmes" AutoSize="TextChanges" />
+
+        <Button Text="Saglabāt izdevumu" Clicked="OnSaveClicked" BackgroundColor="#34C759" TextColor="White" />
+
+        <Button Text="Parādīt izdevumus" Clicked="OnShowExpensesClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
